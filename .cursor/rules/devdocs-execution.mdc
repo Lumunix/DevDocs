@@ -1,0 +1,15 @@
+---
+description: Worker execution, ActionProvider registry, and network safety
+globs: "**/execution/**,worker/**"
+alwaysApply: false
+---
+
+# DevDocs execution
+
+- Long-running work runs in the **worker**, not HTTP handlers.
+- **ActionProviderRegistry:** one folder per type (`rest`, `kafka`, `mqtt`, `helm`, `terraform`); register in `registry.ts`.
+- New action type = schema + validate + execute + summary + registry entry + tests — never inline provider logic in the executor loop.
+- Unknown `action:<type>` must fail validation explicitly.
+- REST: SSRF protections, relative paths, redact auth headers.
+- Helm/Terraform: **pinned CLI**, schema-bound args only — not a shell escape hatch.
+- PostgreSQL is durable execution truth; handle duplicate queue delivery idempotently.

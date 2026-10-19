@@ -1,0 +1,14 @@
+---
+description: Entra OIDC, sessions, and RBAC
+globs: "**/auth/**,**/hooks.server.ts"
+alwaysApply: false
+---
+
+# DevDocs auth
+
+- Production sign-in: **Microsoft Entra ID** OIDC (authorization code + PKCE, server token exchange, session cookie).
+- `AUTH_PROVIDER=local` is **dev only** — must not ship enabled in production.
+- Use centralized **`requirePermission(ctx, permission)`**; do not trust client-sent roles.
+- Enforce workspace boundaries on every query and API.
+- OAuth: validate state/nonce; secure SameSite cookies; never log tokens or secrets.
+- Worker enqueue: re-check resource access and permissions for `requested_by`.

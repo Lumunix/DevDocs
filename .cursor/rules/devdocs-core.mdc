@@ -1,0 +1,13 @@
+---
+description: DevDocs core architecture and delivery principles
+alwaysApply: true
+---
+
+# DevDocs core
+
+- Canonical spec: `docs/devdocs-product-spec.md`. Read `AGENTS.md` first.
+- **Markdown first:** persist `body_markdown`; server remark/unified parser is authoritative for validate and run.
+- **No execution in the browser.** Queue jobs for the worker.
+- **Phased delivery:** complete one implementation phase before starting the next; keep build green.
+- **Security is mandatory:** RBAC, SSRF (REST), secret redaction, safe Markdown rendering.
+- Do not replace existing working repo conventions without cause (inspect first).

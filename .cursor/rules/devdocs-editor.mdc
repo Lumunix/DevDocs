@@ -1,0 +1,14 @@
+---
+description: Milkdown Crepe editor and Markdown round-trip
+globs: "**/editor/**"
+alwaysApply: false
+---
+
+# DevDocs editor
+
+- Authoring uses **@milkdown/crepe** mounted in Svelte (`onMount`, bound DOM root).
+- Editor routes: **client-only** (`ssr: false` or dynamic import).
+- Stored source is `getMarkdown()` output; action blocks serialize to `action:<type>` fenced blocks.
+- Core **actionBlock** plugin + optional per-provider UI plugins; shared Zod schemas in `src/lib/schemas/providers/`.
+- Validate API must not execute providers; round-trip tests: Crepe → Markdown → remark parser.
+- Harmonize Crepe CSS with Skeleton theme variables (editor chrome bridge).

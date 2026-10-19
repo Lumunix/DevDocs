@@ -1,0 +1,13 @@
+---
+description: Skeleton v5 UI conventions for DevDocs
+globs: "**/*.{svelte,css},src/routes/**"
+alwaysApply: false
+---
+
+# DevDocs UI (Skeleton v5)
+
+- Use [Skeleton v5](https://www.skeleton.dev/) for all product surfaces under `/app`, login, and settings.
+- Do not add parallel UI kits (shadcn-only pages, DaisyUI-as-primary, unstyled forms).
+- Prefer Skeleton framework components: Navigation, Dialog, Toast, Tabs, Tags Input, Forms, Card, Table, App Bar.
+- Use **v5 APIs only** — not Skeleton v2–v4 doc examples.
+- Custom components should compose Skeleton primitives or Skeleton Tailwind tokens.

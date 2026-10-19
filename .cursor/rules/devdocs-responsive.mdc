@@ -1,0 +1,16 @@
+---
+description: Mobile, tablet, and desktop layout requirements
+alwaysApply: true
+---
+
+# DevDocs responsive scaling
+
+Every new screen and layout must work on **mobile, tablet, and desktop**.
+
+- **Mobile-first** Tailwind breakpoints; test at ~375px, ~768px, ~1280px.
+- **Mobile (~320–639px):** single column; collapsible nav; filters in Dialog/disclosure; full-width editor.
+- **Tablet (~640–1023px):** ~2-column grids; wrapped toolbars; execution in tab or sheet.
+- **Desktop (~1024px+):** sidebar + main; execution drawer; 3+ grid columns where appropriate.
+- No fixed widths that cause horizontal page scroll on small viewports (except intentional table overflow with scroll).
+- Primary actions (Save, Run, nav): ~44px min touch targets.
+- Use Skeleton [Layouts](https://www.skeleton.dev/docs/guides/layouts) patterns where applicable.
